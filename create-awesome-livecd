@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+set -eu
+
+fedora_version=${1:-20}
+
+vendor_dir=vendor/
+fslabel='Fedora-Awesome'
+
+function download_spin_kickstarts {
+    original_cwd=$(pwd)
+
+    mkdir -p "${vendor_dir}"
+    cd "${vendor_dir}"
+    if [[ ! -d "spin-kickstarts" ]]; then
+        git clone https://git.fedorahosted.org/git/spin-kickstarts.git
+    fi
+    
+    cd spin-kickstarts
+    git reset --hard "origin/f${fedora_version}"
+    cd "${original_cwd}"
+}
+
+function create_livecd {
+    rm -f "${fslabel}.iso"
+    livecd-creator --config=fedora-livecd-awesome.ks --fslabel=$fslabel
+}
+
+download_spin_kickstarts
+create_livecd
+
