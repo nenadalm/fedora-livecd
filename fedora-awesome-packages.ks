@@ -1,13 +1,8 @@
 %packages
-awesome
-vim
-terminator
-firefox
-gvim
-evince
-git
+ansible
+%end
 
-# hopefully temorary till I find something better
-control-center
+%post --erroronfail
+git clone http://github.com/nenadalm/spin-kickstarts /tmp/spin-kickstarts
 %end
 

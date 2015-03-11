@@ -1,0 +1,16 @@
+- yum: name=vim state=present
+
+- yum: name=gvim state=present
+
+- yum: name=terminator state=present
+
+- yum: name=firefox state=present
+
+- yum: name=git state=present
+
+- yum: name=evince state=present
+
+- copy: src=configuration/ dest=/
+
+- git: repo=https://github.com/gmarik/vundle.git dest=/etc/skel/.vim/bundle/vundle depth=1
+
