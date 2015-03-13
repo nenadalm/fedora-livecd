@@ -10,6 +10,10 @@
 
 - yum: name=evince state=present
 
+- yum: name=mc state=present
+
+- file: path=/usr/local/bin/xdg-open src=/usr/bin/gvfs-open state=link
+
 - copy: src=configuration/ dest=/
 
 - git: repo=https://github.com/gmarik/vundle.git dest=/etc/skel/.vim/bundle/vundle depth=1
