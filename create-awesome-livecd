@@ -2,7 +2,7 @@
 
 set -eu
 
-fedora_version=${1:-20}
+fedora_version=${1:-21}
 
 vendor_dir=vendor/
 fslabel='Fedora-Awesome'
