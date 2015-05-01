@@ -12,9 +12,16 @@
 
 - yum: name=mc state=present
 
+  # because of use rpm_key module
+- yum: name=gnupg state=present
+
 - file: path=/usr/local/bin/xdg-open src=/usr/bin/gvfs-open state=link
 
 - copy: src=configuration/ dest=/
+
+- rpm_key: key=https://dl-ssl.google.com/linux/linux_signing_key.pub state=present
+
+- yum: name=google-chrome-stable state=present
 
 - git: repo=https://github.com/gmarik/vundle.git dest=/etc/skel/.vim/bundle/vundle depth=1
 
