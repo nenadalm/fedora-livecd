@@ -7,5 +7,5 @@
     - shell: curl -sS https://getcomposer.org/installer | /opt/phpfarm/inst/current/bin/php -- --install-dir=/usr/local/bin --filename=composer
       args:
         creates: /usr/local/bin/composer
-#    - yum: name=community-mysql-server state=present
+    - yum: name=community-mysql-server state=present
 
