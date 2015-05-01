@@ -1,0 +1,6 @@
+- yum: name=postgresql-server state=present
+
+- shell: postgresql-setup initdb creates=/var/lib/pgsql/data
+
+- copy: src=configuration/ dest=/
+
