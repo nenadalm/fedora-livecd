@@ -7,5 +7,10 @@
     - shell: curl -sS https://getcomposer.org/installer | /opt/phpfarm/inst/current/bin/php -- --install-dir=/usr/local/bin --filename=composer
       args:
         creates: /usr/local/bin/composer
+
+    - file: name=/var/www/html/adminer state=directory
+
+    - get_url: url=http://www.adminer.org/latest.php dest=/var/www/html/adminer/index.php
+
     - yum: name=community-mysql-server state=present
 
