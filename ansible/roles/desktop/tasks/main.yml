@@ -12,6 +12,8 @@
 
 - yum: name=mc state=present
 
+- yum: name=thunderbird state=present
+
   # because of use rpm_key module
 - yum: name=gnupg state=present
 
