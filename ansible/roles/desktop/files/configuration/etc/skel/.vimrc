@@ -19,12 +19,16 @@ Plugin 'amdt/vim-niji'
 Plugin 'scrooloose/nerdtree'
 "fuzzy search
 Plugin 'kien/ctrlp.vim'
+"tab completion during search using "/"
+Plugin 'vim-scripts/Searchcomplete'
 "highlights modified/new lines
 Plugin 'airblade/vim-gitgutter'
 "git wrapper
 Plugin 'tpope/vim-fugitive'
 "comments
 Plugin 'scrooloose/nerdcommenter'
+"surround
+Plugin 'tpope/vim-surround'
 
 call vundle#end()
 
