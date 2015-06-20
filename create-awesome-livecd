@@ -2,7 +2,7 @@
 
 set -eu
 
-fedora_version=${1:-21}
+fedora_version=${1:-22}
 
 vendor_dir=vendor/
 fslabel='Fedora-Awesome'
@@ -23,6 +23,7 @@ function download_spin_kickstarts {
 
 function create_livecd {
     rm -f "${fslabel}.iso"
+    livecd-creator --help > /dev/null || dnf install -y livecd-tools
     livecd-creator --config=fedora-livecd-awesome.ks --fslabel=$fslabel
 }
 
