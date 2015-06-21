@@ -71,7 +71,7 @@
 
 - file: path=/opt/phpfarm owner=phpfarm group=phpfarm recurse=yes
 
-- shell: PATH=$PATH:/usr/bin:/usr/sbin:/opt/phpfarm/inst/current/bin:/opt/phpfarm/inst/bin /opt/phpfarm/src/main.sh creates=/opt/phpfarm/inst/php-5.4.42/bin/php
-
-- command: /opt/phpfarm/inst/bin/switch-phpfarm 5.4.42 creates=/opt/phpfarm/inst/current/bin/php
+# - shell: PATH=$PATH:/usr/bin:/usr/sbin:/opt/phpfarm/inst/current/bin:/opt/phpfarm/inst/bin /opt/phpfarm/src/main.sh creates=/opt/phpfarm/inst/php-5.4.42/bin/php
+#
+# - command: /opt/phpfarm/inst/bin/switch-phpfarm 5.4.42 creates=/opt/phpfarm/inst/current/bin/php
 
