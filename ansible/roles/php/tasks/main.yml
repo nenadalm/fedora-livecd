@@ -64,14 +64,24 @@
 
 - name: gcc-c++
   yum: name=gcc-c++ state=present
-      
+
+- name: glibc-headers
+  yum: name=glibc-headers state=present
+
+- name: binutils
+  yum: name=binutils state=present
+
 - git: repo=https://github.com/fpoirotte/phpfarm.git dest=/opt/phpfarm depth=1
 
 - copy: src=configuration/ dest=/
 
 - file: path=/opt/phpfarm owner=phpfarm group=phpfarm recurse=yes
 
-# - shell: PATH=$PATH:/usr/bin:/usr/sbin:/opt/phpfarm/inst/current/bin:/opt/phpfarm/inst/bin /opt/phpfarm/src/main.sh creates=/opt/phpfarm/inst/php-5.4.42/bin/php
-#
-# - command: /opt/phpfarm/inst/bin/switch-phpfarm 5.4.42 creates=/opt/phpfarm/inst/current/bin/php
+- shell: PATH=$PATH:/usr/bin:/usr/sbin:/opt/phpfarm/inst/current/bin:/opt/phpfarm/inst/bin /opt/phpfarm/src/main.sh creates=/opt/phpfarm/inst/php-5.4.42/bin/php
+
+- command: /opt/phpfarm/inst/bin/switch-phpfarm 5.4.42 creates=/opt/phpfarm/inst/current/bin/php
+
+- shell: curl -sS https://getcomposer.org/installer | /opt/phpfarm/inst/current/bin/php -- --install-dir=/usr/local/bin --filename=composer
+  args:
+      creates: /usr/local/bin/composer
 
