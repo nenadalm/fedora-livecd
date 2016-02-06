@@ -1,81 +1,86 @@
-- user: name=phpfarm createhome=no state=present
+#- user: name=phpfarm createhome=no state=present
 
-- group: name=phpfarm state=present
+#- group: name=phpfarm state=present
 
-- name: make
-  yum: name=make state=present
+#- name: make
+  #yum: name=make state=present
       
-- name: wget
-  yum: name=wget state=present
+#- name: wget
+  #yum: name=wget state=present
       
-- name: gcc
-  yum: name=gcc state=present
+#- name: gcc
+  #yum: name=gcc state=present
 
-- name: mod_fcigd
-  yum: name=mod_fcgid state=present
+#- name: mod_fcigd
+  #yum: name=mod_fcgid state=present
 
-- name: tar
-  yum: name=tar state=present
+#- name: tar
+  #yum: name=tar state=present
 
-- name: bzip2
-  yum: name=bzip2 state=present
+#- name: bzip2
+  #yum: name=bzip2 state=present
 
-- name: autoconf
-  yum: name=autoconf state=present
+#- name: autoconf
+  #yum: name=autoconf state=present
 
-- name: libxml2-devel
-  yum: name=libxml2-devel state=present
+#- name: libxml2-devel
+  #yum: name=libxml2-devel state=present
 
-- name: libcurl-devel
-  yum: name=libcurl-devel state=present
+#- name: libcurl-devel
+  #yum: name=libcurl-devel state=present
 
-- name: postgresql-devel
-  yum: name=postgresql-devel state=present
+#- name: postgresql-devel
+  #yum: name=postgresql-devel state=present
 
-- name: openssl-devel
-  yum: name=openssl-devel state=present
+#- name: openssl-devel
+  #yum: name=openssl-devel state=present
 
-- name: libssh2-devel
-  yum: name=libssh2-devel state=present
+#- name: libssh2-devel
+  #yum: name=libssh2-devel state=present
 
-- name: openldap-devel
-  yum: name=openldap-devel state=present
+#- name: openldap-devel
+  #yum: name=openldap-devel state=present
 
-- name: turbojpeg-devel
-  yum: name=turbojpeg-devel state=present
+#- name: turbojpeg-devel
+  #yum: name=turbojpeg-devel state=present
 
-- name: libjpeg-turbo-devel
-  yum: name=libjpeg-turbo-devel state=present
+#- name: libjpeg-turbo-devel
+  #yum: name=libjpeg-turbo-devel state=present
       
-- name: libpng-devel
-  yum: name=libpng-devel state=present
+#- name: libpng-devel
+  #yum: name=libpng-devel state=present
       
-- name: libicu-devel
-  yum: name=libicu-devel state=present
+#- name: libicu-devel
+  #yum: name=libicu-devel state=present
 
-- name: libmcrypt-devel
-  yum: name=libmcrypt-devel state=present
+#- name: libmcrypt-devel
+  #yum: name=libmcrypt-devel state=present
 
-- name: ImageMagick-devel
-  yum: name=ImageMagick-devel state=present
+#- name: ImageMagick-devel
+  #yum: name=ImageMagick-devel state=present
 
-- name: librabbitmq-devel
-  yum: name=librabbitmq-devel state=present
+#- name: librabbitmq-devel
+  #yum: name=librabbitmq-devel state=present
 
-- name: gcc-c++
-  yum: name=gcc-c++ state=present
+#- name: gcc-c++
+  #yum: name=gcc-c++ state=present
 
-- name: glibc-headers
-  yum: name=glibc-headers state=present
+#- name: glibc-headers
+  #yum: name=glibc-headers state=present
 
-- name: binutils
-  yum: name=binutils state=present
+#- name: binutils
+  #yum: name=binutils state=present
 
-- git: repo=https://github.com/fpoirotte/phpfarm.git dest=/opt/phpfarm depth=1
+- shell: dnf enable nenadalm/phpfarm
+
+- name: phpfarm
+  yum: name=phpfarm state=present
+
+#- git: repo=https://github.com/fpoirotte/phpfarm.git dest=/opt/phpfarm depth=1
 
 - copy: src=configuration/ dest=/
 
-- file: path=/opt/phpfarm owner=phpfarm group=phpfarm recurse=yes
+#- file: path=/opt/phpfarm owner=phpfarm group=phpfarm recurse=yes
 
 - shell: PATH=$PATH:/usr/bin:/usr/sbin:/opt/phpfarm/inst/current/bin:/opt/phpfarm/inst/bin /opt/phpfarm/src/main.sh creates=/opt/phpfarm/inst/php-5.4.42/bin/php
 
