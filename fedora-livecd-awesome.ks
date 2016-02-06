@@ -18,7 +18,11 @@ EOF
 
 ntpdate pool.ntp.org
 
-git clone http://github.com/nenadalm/fedora-livecd /tmp/fedora-livecd --depth=1 --branch=master
+dnf check-update
+dnf upgrade -y
+dnf distro-sync -y
+
+git clone http://github.com/nenadalm/fedora-livecd /tmp/fedora-livecd --depth=1 --branch=develop
 cd /tmp/fedora-livecd/ansible
 PATH=$PATH:/usr/bin:/usr/sbin ansible-playbook playbook.yml --connection=local -vvvv
 %end
