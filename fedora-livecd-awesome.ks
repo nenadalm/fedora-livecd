@@ -25,5 +25,9 @@ dnf distro-sync -y
 git clone http://github.com/nenadalm/fedora-livecd /tmp/fedora-livecd --depth=1 --branch=develop
 cd /tmp/fedora-livecd/ansible
 PATH=$PATH:/usr/bin:/usr/sbin ansible-playbook playbook.yml --connection=local -vvvv
+
+dnf copr enable nenadalm/phpfarm
+dnf copr enable nenadalm/nenadalm-config
+dnf install -y phpfarm nenadalm-config
 %end
 
