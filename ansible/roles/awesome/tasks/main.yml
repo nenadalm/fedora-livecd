@@ -1,6 +1,0 @@
-- yum: name=awesome state=present
-
-- copy: src=configuration/ dest=/
-
-- git: repo=https://github.com/hoelzro/obvious dest=/etc/skel/.config/awesome/obvious depth=1
-
